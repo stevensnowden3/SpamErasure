@@ -15,11 +15,9 @@ def home():
 	vect = cv.transform(data).toarray()
 	prediction = clf.predict(vect)
 	result = prediction[0]
-	if result==1:
-		return "hey there this is spam"
-	else:
-		return "hey this is Not Spam"
 
+	return jsonify(prediction=str(result))
 
+	
 if __name__ == '__main__':
 	app.run(debug=True)
